@@ -1,0 +1,231 @@
+/**
+ * 主应用样式
+ */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f7fa;
+}
+
+/* 头部 */
+.app-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px 0;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.header-status {
+  font-size: 14px;
+}
+
+.status-indicator {
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.status-indicator.online {
+  background: rgba(72, 187, 120, 0.3);
+}
+
+.status-indicator.offline {
+  background: rgba(245, 101, 101, 0.3);
+}
+
+/* 导航 */
+.app-nav {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 24px 0;
+  display: flex;
+  gap: 12px;
+}
+
+.nav-tab {
+  padding: 14px 28px;
+  border: none;
+  background: white;
+  border-radius: 12px 12px 0 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-bottom: 3px solid transparent;
+}
+
+.nav-tab:hover {
+  color: #667eea;
+}
+
+.nav-tab.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+  box-shadow: 0 -4px 15px rgba(102, 126, 234, 0.15);
+}
+
+/* 主内容 */
+.app-main {
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px 24px;
+}
+
+/* 文档学习区域 */
+.document-section {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 24px;
+  margin-top: -3px;
+}
+
+.left-panel,
+.right-panel {
+  background: white;
+  border-radius: 0 16px 16px 16px;
+}
+
+.left-panel {
+  border-radius: 0 16px 16px 16px;
+}
+
+.right-panel {
+  border-radius: 16px;
+}
+
+/* 单词本区域 */
+.wordbook-section {
+  margin-top: -3px;
+}
+
+/* 划词悬浮菜单 */
+.word-selection-popup {
+  position: fixed;
+  transform: translate(-50%, -100%);
+  z-index: 1000;
+  animation: popIn 0.2s ease;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -80%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -100%);
+  }
+}
+
+.popup-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.popup-content::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: #333;
+  border-bottom: none;
+}
+
+.selected-word {
+  color: #ffd700;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.popup-content button {
+  padding: 6px 12px;
+  background: #667eea;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.popup-content button:hover {
+  background: #5a6fd6;
+}
+
+/* 页脚 */
+.app-footer {
+  background: white;
+  padding: 16px;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+.app-footer p {
+  margin: 0;
+  font-size: 13px;
+  color: #888;
+}
+
+/* 离线提示 */
+.offline-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px;
+  background: #fff5f5;
+  border-top: 2px solid #fc8181;
+  text-align: center;
+  font-size: 14px;
+  color: #c53030;
+}
+
+.offline-banner code {
+  background: #fed7d7;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+/* 响应式适配 */
+@media (max-width: 900px) {
+  .document-section {
+    grid-template-columns: 1fr;
+  }
+
+  .header-content h1 {
+    font-size: 18px;
+  }
+
+  .nav-tab {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
